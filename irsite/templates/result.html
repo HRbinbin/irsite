@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Search result</title>
+<!-- Bootstrap -->
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/self.css' %}" rel="stylesheet">
+</head>
+<body style="padding: 70px; background: url({% static "images/2.jpg" %})no-repeat;background-size: cover; background-attachment:fixed ">
+<div class="container">
+  <div class="row">
+  <nav class="col-xs-6 col-xs-offset-3 navbar navbar-default navbar-fixed-top" style="border-radius: 5px;">
+    <div class="navbar-header well-sm"> <a class="navbar-brand" href="{% url 'index' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a> </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <form class="navbar-form navbar-left" action="{% url 'search' %}" method="get">
+        <div class="form-group well-sm">
+          <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">共计{{length}}个结果</span>
+          <input name="keywords" id="searchnull" value="{{keyword}}" type="text" class="form-control" placeholder="Search" style="width: 30rem;">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default" onclick="return validatorNull()">Search</button>
+        {% if check_words %}
+      <a href="/accuracy/{{ keyword }}"><span class="btn btn-default">验证结果</span> </a>
+      {% endif %}
+      </form>
+    </div>
+  </nav>
+  </div>
+<div class="col-xs-10 col-xs-offset-1">
+      <ul class="list-group list-unstyled">
+         {% for result in results %}
+
+        <a href="/news/{{ result.doc_id }}" class="list-group-item">
+          <li><strong>文档id：{{result.doc_id}}.txt</strong></li>
+          <li><strong>评分score：{{result.score}}</strong></li>
+          <li><small>{{result.line | safe}}</small></li>
+        </a>
+     {% endfor %}
+  <div class="mastfoot">
+    <div class="inner" style="text-align: center">
+          <p>Design For <a href=" " style="color: white">IrGroupⅪ</a>, by <a href=" " style="color: white">@Boukawa</a>.</p>
+    </div>
+  </div>
+      </ul>
+</div>
+  </div>
+</div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% static 'bootstrap/js/jquery-1.11.3.min.js' %}"></script> 
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug --> 
+<script src="{% static 'js/self.js' %}"></script>
+</body>
+</html>

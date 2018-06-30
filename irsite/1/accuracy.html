@@ -1,0 +1,265 @@
+ {% load staticfiles %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>验证</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords1" content="Flat Search Box Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<!--Google Fonts-->
+    <link href="{% static 'css/style1.css' %}" rel="stylesheet" type="text/css" media="all"/>
+    <script type="text/javascript" src="{% static 'js/echarts.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+
+</head>
+
+<body>
+<div style="background:url({% static "images/5.jpg" %})no-repeat;background-size: cover;background-attachment:fixed;">
+
+<div class="search">
+  <i><a href="{% url 'index' %}">&nbsp&nbsp&nbsp&nbsp&nbsp</a></i>
+  <div class="s-bar">
+    <form action="{% url 'search' %}" method="get">
+      <input name="keywords"  type="text" value="Search Papers" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search Papers';}">
+      <input type="submit"  value="Search"/>
+    </form>
+  </div>
+</div>
+
+<style>
+.search {
+  text-align: center;
+  margin: auto;
+  position: relative;
+  top:20px;
+}
+.s-bar {
+  width: 34%;
+  margin: 0 auto;
+  padding: 0.5em 0em 0.5em 0em;
+}
+.s-bar input[type="text"] {
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  padding: 1.3em 1em 1.3em 1.5em;
+  width: 70%;
+ text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+               rgba(80, 80, 80, 0.07) 2px 2px,
+               rgba(80, 80, 80, 0.09) 3px 3px,
+               rgba(80, 80, 80, 0.04) 4px 4px,
+               rgba(80, 80, 80, 0.06) 5px 5px;
+  border-radius: 5px 0px 0px 5px;
+ -webkit-border-radius: 5px 0px 0px 5px;
+  -moz-border-radius: 5px 0px 0px 5px;
+  -o-border-radius: 5px 0px 0px 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+}
+.s-bar input[type="submit"]{
+  font-size: 1em;
+  font-weight: 600;
+  color: #fff;
+  padding: 1.3em 0.5em;
+  width: 22%;
+  text-align: center;
+  text-shadow: rgba(80, 80, 80, 0.08) 1px 1px,
+               rgba(80, 80, 80, 0.07) 2px 2px,
+               rgba(80, 80, 80, 0.09) 3px 3px,
+               rgba(80, 80, 80, 0.04) 4px 4px,
+               rgba(80, 80, 80, 0.06) 5px 5px;
+  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius:0px 5px 5px 0px;
+  -moz-border-radius:0px 5px 5px 0px;
+  -o-border-radius:0px 5px 5px 0px;
+  margin: 0px 0px 0px -4px;
+  background:#7ac209;
+  cursor:pointer;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  background: #7ac209;
+  background: -moz-linear-gradient(top, #7ac209 0%, #7ac209 37%, #7ac209 66%, #7ac209 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#7ac209), color-stop(37%,#7ac209), color-stop(66%,#7ac209), color-stop(100%,#7ac209));
+  background: -webkit-linear-gradient(top, #7ac209 0%,#7ac209 37%,#7ac209 66%,#7ac209 100%);
+  background: -o-linear-gradient(top, #7ac209 0%,#7ac209 37%,#7ac209 66%,#7ac209 100%);
+  background: -ms-linear-gradient(top, #7ac209 0%,#7ac209 37%,#7ac209 66%,#7ac209 100%);
+  background: linear-gradient(to bottom, #8EDB15 0%,#8EDB15 37%,#8EDB15 66%,#8EDB15 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ac209', endColorstr='#7ac209',GradientType=0 );
+}
+.s-bar input[type="submit"]:hover{
+	opacity: 0.8;
+      filter: alpha(opacity=100);
+      transition: all 0.3s ease;
+     -webkit-transition: all 0.3s ease;
+     -moz-transition: all 0.3s ease;
+     -o-transition: all 0.3s ease;
+}
+.search i {
+  background: url({% static "images/search.png" %});
+  width: 31px;
+  height: 31px;
+  display: block;
+  position: absolute;
+  top: 20%;
+  left: 32.2%;
+  cursor: pointer;
+}
+.search i a{
+  text-decoration: none;
+}
+.search p {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #fff;
+  margin: auto;
+  text-align: center;
+}
+.search p a {
+  font-size: 0.9em;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: underline;
+}
+.search p a:hover {
+	text-decoration:none;
+}
+.xwtable {width: 100%;border-collapse: collapse;border: 1px solid #ccc;}
+
+.xwtable td{
+    line-height:20px;
+    text-align: center;
+    padding:4px 10px 3px 10px;
+    height: 18px;
+    border: 1px solid #ccc;
+    font-family: Tahoma;
+    font-size: 15px;
+    color:#666666;
+}
+    .xwtable a{
+        font-family: Tahoma;
+        font-size: 15px;
+        color:#666666;
+    }
+        body{
+        margin:0px;
+    }
+</style>
+
+<br>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>&nbsp;</td>
+    <td width="642" align="middle" valign="top"><table width="642"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="right" valign="top"><table width="641"  border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="left" valign="top"><img src="{% static "images/pricy_polutions_fur_fur!.jpg" %}" width="641" height="22" ></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" background="{% static "images/liner_1.jpg" %}">
+              <div style="height:0px"> </div>
+              <div style="padding-left:18px; padding-top:16px; padding-right:20px"><span class="style12"><span style="font-size: 21px; font-family: tahoma;">
+                  <p style="text-decoration: underline"><a href="/search?keywords={{ keyword }}" style="color: #666666">检索词&nbsp：<strong>{{ keyword }}</strong></a></p>
+                  <p style="font-size: 20px;font-family: Tahoma">一、无序检索结果集合的评价</p>
+                  <span style="font-size: 15px; font-family: tahoma;">
+                      <p>&nbsp&nbsp&nbsp1、Precision:&nbsp<strong>{{ precise }}</strong></p>
+                      <p>&nbsp&nbsp&nbsp2、Recall:&nbsp<strong>{{ recall }}</strong></p>
+                      <p>&nbsp&nbsp&nbsp3、F1 score:&nbsp<strong>{{ f }}</strong></p>
+                      <p>&nbsp&nbsp&nbsp4、Contingency Table:&nbsp</p>
+                  </span>
+            </span>
+              <div style="border-style: none; margin: 5px; padding: 10px">
+                  <table class="xwtable">
+                      <tr>
+                      <tr>
+                      <td></td>
+                      <td>相关(Relevant),正类</td>
+                      <td>无关(NonRelevant),负类</td>
+                  </tr>
+                      <tr>
+                          <td>被检索到(Retrieved)</td>
+                          <td><a href="/accuracy/{{ keyword }}/tp"><strong>{{ tp }}</strong></a></td>
+                          <td><a href="/accuracy/{{ keyword }}/fp"><strong>{{ fp }}</strong></a></td>
+                      </tr>
+                      <tr>
+                          <td>未被检索到(Not Retrieved)</td>
+                          <td><a href="/accuracy/{{ keyword }}/fn"><strong>{{ fn }}</strong></a></td>
+                          <td><a href="/accuracy/{{ keyword }}/tn"><strong>{{ tn }}</strong></a></td>
+                      </tr>
+                  </table>
+              </div>
+                  <span style="font-size: 21px; font-family: tahoma;">
+                      <p style="font-size: 20px;font-family: Tahoma">二、有序检索结果集合的评价</p>
+                      <span style="font-size: 15px; font-family: tahoma;">
+                          <p>&nbsp&nbsp&nbsp1、AP:&nbsp<strong>{{ rank }}</strong></p>
+                          <p>&nbsp&nbsp&nbsp2、Precision-Recall Curve:&nbsp</p>
+                          <!--<img src="{% static 'images' %}/{{ keyword }}.png" style="width:600px; height:auto">-->
+
+                          <div id="chart1" style="width:600px; height: 400px"></div>
+                          <script type="text/javascript">
+                              var myChart = echarts.init(document.getElementById('chart1'));
+                              option = {
+                                  tooltip: {
+                                      formatter: function (params) {
+                                          var document_number = params.dataIndex + 1;
+                                          var data = params.data;
+                                          return '前' + document_number + '个文档<br>正确率 ' + data[1].toString().substr(0, 8) + '<br>召回率 ' + data[0].toString().substr(0, 8);
+                                      }
+                                  },
+                                  xAxis: {
+                                      name:"Recall",
+                                      type:"value",
+                                      max:{{ rmax }},
+                                      min:{{ rmin }},
+                                  },
+                                  yAxis: {
+                                      name:"Precision",
+                                      type:"value",
+                                      max:{{ pmax }},
+                                      min:{{ pmin }},
+                                  },
+                                  series: [{
+                                      data: {{ pr }},
+                                      type: 'line',
+                                      smooth: false,
+                                      // symbol:"none",
+                                      symbolSize: 2,
+                                  }]
+                              };
+                              myChart.setOption(option)
+                          </script>
+                      </span>
+                  </span>
+              </span>
+</div>
+          </tr>
+          <tr>
+            <td align="left" valign="top"><img src="{% static "images/bot_2.jpg" %}" width="641" height="3"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="left" valign="top" background="{% static "images/rep_1.jpg" %}" style="background-repeat:repeat-x; background-position:top left ">
+          <div align="center" style="padding-top:14px"><span class="style7"><a href="#" style="color:#2174A8; text-decoration:none ">How to Suggest a Site</a> - <a href="#" style="color:#2174A8; text-decoration:none ">Company Info</a> - <a href="index-2.html" style="color:#2174A8; text-decoration:none ">Copyright Policy</a> -<a href="#" style="color:#2174A8; text-decoration:none "> Terms of Service</a> - <a href="#" style="color:#2174A8; text-decoration:none ">Jobs</a> - <a href="#" style="color:#2174A8; text-decoration:none ">Advertise with Us</a></span> </div>
+            <div style="padding-left:5px; padding-top:3px">
+              <div align="center"><span class="style8">Copyright &copy; Ir11, 2018. All Rights Reserved</span></div>
+          </div></td>
+      </tr>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td width="642" align="left" valign="top">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

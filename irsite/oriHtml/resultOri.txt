@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信息检索大作业项目</title>
+</head>
+<body>
+    <h1><a href="{% url 'index' %}" style="text-decoration: none; color: #333333;">新闻检索</a></h1>
+    <form action="{% url 'search' %}" method="get">
+        <input name="keywords">
+        <input type="submit" content="确认">
+    </form>
+    <p>检索词: {{ keyword }}</p>
+    <p>共计有{{ length }}条结果</p>
+    {% for result in results %}
+    <a href="/news/{{ result.doc_id }}" style="text-decoration: none; color: #333333;">
+        <div style="border-style: solid; border-color: grey; margin: 20px; padding: 10px;">
+            <p>{{ result.line }}</p>
+            <p>文档id: {{ result.doc_id }}.txt<div>评分 {{ result.score }}</div></p>
+        </div>
+    </a>
+    {% endfor %}
+</body>
+</html>
